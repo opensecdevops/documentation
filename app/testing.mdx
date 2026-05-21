@@ -1,0 +1,96 @@
+# Testing
+
+Si queremos podemos crear test para nuestro paquete, para ello se ha creado los matchers de jest para poder testear el paquete.
+
+Si no hemos configurado los test en la creación del paquete, podemos los matchers añadirlos con el siguiente comando:
+
+```bash
+npm i --save-dev @opensecdevops/jest-osdo
+```
+
+Una vez instalado, podemos añadir los matchers en el fichero de configuración de jest:
+
+```json
+{
+  "jest": {
+    "setupFilesAfterEnv": ["@opensecdevops/jest-osdo"]
+  }
+}
+```
+
+Una vez añadidos los matchers, podemos crear los test para nuestro paquete.
+
+## Test de la función `toBeStructure`
+
+Nos permite comprobar si el config.json tiene la estructura correcta.
+
+```javascript
+const config = require("../config.json");
+
+test('test validate json', () => {
+    expect(config).toBeStructure();
+});
+```
+
+## Test de la funcion `toBeRender`
+
+Nos permite asegurarnos que los ficheros finales que queremos renderizar con los datos recividos son correctos.
+
+```javascript
+const fs = require("fs");
+const path = require("path");
+
+test("test generate gitleaks", () => {
+
+  const datas = {
+    gitleaks: {
+      allow_failure: false,
+      artifacts: false,
+      image: 2,
+      job_name: "gitleaks",
+    },
+  };
+
+
+  const yalm = fs.readFileSync(
+    path.resolve(__dirname, "./fixtures/renders/total.yml"),
+    "utf8"
+  );
+
+  render = [
+    {
+      file: ".gitlab-ci.yml",
+      view: yalm,
+      language: "yaml",
+    },
+  ]
+
+  expect(render).toBeRender(datas);
+});
+```
+
+En este caso en el `expect` hay que pasarle el array con el resultado final que queremos y en la función `toBeRender` le pasamos el objeto con los datos que queremos renderizar.
+
+:::info
+La estructura del render es un array de objectos que es la que usar el generador para pintar en la web.
+:::
+
+## Test de la función `toBeRules`
+
+Nos permite comprobar si las reglas definidas en el config.json funcionan como queremos.
+
+Para las validaciones se usa la libreria [robust-validator](https://github.com/axe-api/validator)
+
+```javascript
+describe('.toBeRules', () => {
+  test('First rules', () => {
+    const datas = {
+      npm: {
+        job_name: 'npm',
+      },
+    };
+
+    expect(true).toBeRules(datas);
+  });
+  ```
+

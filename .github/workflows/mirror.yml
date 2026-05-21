@@ -1,0 +1,27 @@
+name: Mirror a GitLab
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  mirror:
+    name: Sincronizar con GitLab
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout completo (historia completa)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push a GitLab
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          git remote add gitlab "https://oauth2:${GITLAB_TOKEN}@gitlab.com/<GITLAB_NAMESPACE>/<GITLAB_DOCUMENTATION_REPO>.git"
+          git push gitlab --all --force
+          git push gitlab --tags --force
+          echo "✅ Mirror completado → gitlab.com/<GITLAB_NAMESPACE>/<GITLAB_DOCUMENTATION_REPO>"

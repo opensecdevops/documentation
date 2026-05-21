@@ -1,0 +1,130 @@
+{
+  "version.label": {
+    "message": "Siguiente",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Infrastructura": {
+    "message": "Infraestructura",
+    "description": "The label for category Infrastructura in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.DefectDojo": {
+    "message": "DefectDojo",
+    "description": "The label for category DefectDojo in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Dependency-Track": {
+    "message": "Dependency-Track",
+    "description": "The label for category Dependency-Track in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.GitLab": {
+    "message": "GitLab",
+    "description": "The label for category GitLab in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Harbor": {
+    "message": "Harbor",
+    "description": "The label for category Harbor in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Desarrollo": {
+    "message": "Desarrollo",
+    "description": "The label for category Desarrollo in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Git": {
+    "message": "Git",
+    "description": "The label for category Git in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Hooks": {
+    "message": "Hooks",
+    "description": "The label for category Hooks in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.CI": {
+    "message": "CI",
+    "description": "The label for category CI in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Fugas de contraseñas": {
+    "message": "Fugas de contraseñas",
+    "description": "The label for category Fugas de contraseñas in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.SBOM": {
+    "message": "SBOM",
+    "description": "The label for category SBOM in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.CycloneDX": {
+    "message": "CycloneDX",
+    "description": "The label for category CycloneDX in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Testing": {
+    "message": "Testing",
+    "description": "The label for category Testing in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.SAST": {
+    "message": "SAST",
+    "description": "The label for category SAST in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contenedores": {
+    "message": "Contenedores",
+    "description": "The label for category Contenedores in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.DAST": {
+    "message": "DAST",
+    "description": "The label for category DAST in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Monitorización": {
+    "message": "Monitorización",
+    "description": "The label for category Monitorización in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.👋 Introducción": {
+    "message": "👋 Introducción",
+    "description": "The label for category 👋 Introducción in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Integracion Continua (CI)": {
+    "message": "Integracion Continua (CI)",
+    "description": "The label for category Integracion Continua (CI) in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Entrega Continua (CD)": {
+    "message": "Entrega Continua (CD)",
+    "description": "The label for category Entrega Continua (CD) in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Sonarqube": {
+    "message": "Sonarqube",
+    "description": "The label for category Sonarqube in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Pre-commit": {
+    "message": "Pre-commit",
+    "description": "The label for category Pre-commit in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.CD ": {
+    "message": "CD ",
+    "description": "The label for category CD  in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Dependecy-Track": {
+    "message": "Dependecy-Track",
+    "description": "The label for category Dependecy-Track in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Preparación": {
+    "message": "Preparación",
+    "description": "The label for category Preparación in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.CertManager": {
+    "message": "CertManager",
+    "description": "The label for category CertManager in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.AppSec": {
+    "message": "AppSec",
+    "description": "The label for category AppSec in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Argo CD": {
+    "message": "Argo CD",
+    "description": "The label for category Argo CD in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Traefik": {
+    "message": "Traefik",
+    "description": "The label for category Traefik in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.GlitchTip": {
+    "message": "GlitchTip",
+    "description": "The label for category GlitchTip in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.GitOps": {
+    "message": "GitOps",
+    "description": "The label for category GitOps in sidebar tutorialSidebar"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.appSidebar.category.Command Injection": {
+    "message": "Command Injection",
+    "description": "The label for category Command Injection in sidebar appSidebar"
+  },
+  "sidebar.appSidebar.category.CSRF": {
+    "message": "CSRF",
+    "description": "The label for category CSRF in sidebar appSidebar"
+  },
+  "sidebar.appSidebar.category.File Upload": {
+    "message": "File Upload",
+    "description": "The label for category File Upload in sidebar appSidebar"
+  },
+  "sidebar.appSidebar.category.SQLi": {
+    "message": "SQLi",
+    "description": "The label for category SQLi in sidebar appSidebar"
+  },
+  "sidebar.appSidebar.category.XSS": {
+    "message": "XSS",
+    "description": "The label for category XSS in sidebar appSidebar"
+  },
+  "sidebar.appSidebar.category.File inclusion": {
+    "message": "File inclusion",
+    "description": "The label for category File inclusion in sidebar appSidebar"
+  },
+  "sidebar.appSidebar.category.Brute Force": {
+    "message": "Brute Force",
+    "description": "The label for category Brute Force in sidebar appSidebar"
+  },
+  "sidebar.appSidebar.category.Open Http Redirect": {
+    "message": "Open Http Redirect",
+    "description": "The label for category Open Http Redirect in sidebar appSidebar"
+  }
+}

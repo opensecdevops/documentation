@@ -1,0 +1,113 @@
+# Paquete
+
+En el contexto de nuestra aplicación de pipelines de CI/CD para infraestructuras basadas en la nube, los "paquetes" juegan un papel crucial. Vamos a detallar qué son, cómo funcionan y por qué son fundamentales para nuestra comunidad de usuarios.
+
+## ¿Qué son los Paquetes?
+
+Los paquetes son esencialmente conjuntos de configuraciones predefinidas que los usuarios pueden compartir dentro de la comunidad. Estos paquetes contienen todo lo necesario para configurar y ejecutar una parte específica o un pipeline completo de CI/CD. Cada paquete incluye dos componentes principales:
+
+Plantillas handlebars: Estas plantillas son esqueletos de configuración para diferentes etapas o aspectos de un pipeline de CI/CD. Son altamente personalizables y permiten a los usuarios definir cómo se ejecutarán tareas específicas, como la integración de código, pruebas, despliegues, análisis de seguridad y más. Handlebars, siendo un motor de plantillas flexible, facilita la creación de configuraciones complejas de manera más accesible y manejable.
+
+Archivo JSON de Configuración del Formulario: Este archivo es el corazón del paquete. Define la estructura y los campos del formulario dinámico que los usuarios utilizarán para personalizar la plantilla Handlebars. El JSON detalla aspectos como los nombres de los campos, tipos de datos, valores predeterminados, reglas de validación, y más. Esto permite a los usuarios adaptar el paquete a sus necesidades específicas sin tener que sumergirse profundamente en los detalles técnicos de la configuración del pipeline.
+
+## Creación de paquetes
+
+Los paquetes tienen la siguiente estructura, dicha estructura es la minima necesaria para que el sistema pueda procesar el paquete.
+
+- README.md
+- config.json
+- tempplates
+  - template1.hbs
+  - template2.hbs
+  - ....
+
+Para crear un paquete podemos usar el generador creado con [Yeoman](https://yeoman.io/), para ello necesitamos instalarlo de forma global con el siguiente comando:
+
+```bash
+npm install -g yo
+npm install -g @opensecdevops/generator-osdo
+```
+
+Una vez instalado, podemos crear un paquete con el siguiente comando:
+
+```bash
+yo @opensecdevops/osdo
+```
+
+El generador nos hará una serie de preguntas para poder generar el paquete, una vez finalizado, tendremos la estructura necesaria para poder publicar el paquete.
+
+### Estructura de config.son
+
+Para la generación del formuario se tiene que crear un fichero con el nombre config.json que dispone de los siguientes campos
+
+- name: "Laravel CI" - Nombre de la paquete.
+- version: "1.0.0" - Versión actual del paquete.
+- description: "Laravel CI for gitlab" - Breve descripción, especifica que es para CI/CD en GitLab.
+- homepage: "https//opensecdevops.com" - Web del proyecto.
+- repository: Campos para enlaces relevantes, actualmente vacíos.
+- type: "pipeline o infrastructure" - Indica  que tipo de paquete es.
+- license: "MIT" - Tipo de licencia bajo la que se distribuye la herramienta.
+- author: "Rafael Otal" - Nombre del autor de la herramienta.
+- template: "gitlab-ci" - Especifica el fichero principal de la plantilla.
+- file: ".gitlab-ci.yml" - Nombre que se mostrara que tiene que tener el fichero.
+- language: "yaml" - Indica el formato del fichero generado para hacer el highlight de código.
+- blocks: Define distintos componentes o "bloques" que se pueden utilizar en un pipeline.
+  - template: Identifica la plantilla específica que se utilizará (por ejemplo, "defectdojo", "composer").
+  - name: Nombre descriptivo del bloque (como "Defect Dojo Engagement", "Composer").
+  - description: Descripción de lo que hace ese bloque.
+  - info: Campo adicional para información
+  - dependencies: El nombre del template de otro bloque del que depende.
+  - fields: Define campos específicos que se pueden configurar para cada bloque.
+    - type: Tipo de campo (text, switch, select).
+    - name: Nombre del campo, que se utiliza en la configuración.
+    - label: Etiqueta legible para el usuario del campo.
+    - rules: Reglas de validación para ese campo, se usan las de [robust-validator](https://github.com/axe-api/validator)
+    - default: Valor predeterminado del campo.
+    - options: Si el campo es de selección, define las opciones disponibles.
+      - id: se usa para las busquedas y control
+      - label: el testo a mostrar
+      - value: el valor que real
+      - dependencies: El nombre del template de otro bloque del que depende.
+  - extra: Información adicional, como archivos de script asociados y sus rutas.
+    - "language": "bash" - Indica el formato del fichero generado para hacer el highlight de código.
+    - "file": "defectdojo-finding.sh", Nombre que se mostrara que tiene que tener el fichero.
+    - "route": ".gitlab-ci", (Opcional) si esta se concatane al al princpio del nombre
+    - dependencies: El nombre del template de otro bloque del que depende.
+    - template: Identifica la plantilla específica que se utilizará (por ejemplo, "defectdojo", "composer").
+
+:::info
+La opcion de dependencia puede estar a nivel de bloque, switch o select.
+:::
+
+:::warning
+Las dependencias no se pueden eliminar en el formulario si hay un bloque que las necesita
+:::
+
+### Generación de template
+
+Los templates se tienen que encontrar en la carpeta templates y se renderizan con el motor de plantillas [Handlebars](https://handlebarsjs.com/)
+
+El template recibe un objeto con las siguiente estructura:
+
+:::note
+
+```js
+{
+  "gitleaks": {
+    allow_failure: false,
+    artifacts: false
+    image: 2
+    image_value: "zricethezav/gitleaks@sha256:fd2b5cab12b563d2cc538b14631764a1c25577780e3b7dba71657d58da45d9d9"
+    job_name: "gitleaks"
+  } 
+}
+  ```
+
+:::
+
+
+## Distribución
+
+Para agregar paquetes a la plataforma, es necesario publicarlos en un repositorio Git. Por el momento, solo se aceptan paquetes alojados en gitlab.com.
+
+Después de registrarse y añadir el token de la API de GitLab, podrá importar su paquete. El sistema buscará automáticamente el tag más reciente y lo incorporará al sistema. Si se detecta algún problema con la estructura del JSON o la ausencia de algún template, se notificará y no se publicará el paquete hasta que se corrijan estos errores.

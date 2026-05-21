@@ -1,0 +1,7 @@
+# Código Correcto
+
+Utilizar la función [htmlspecialchars](http://php.net/manual/es/function.htmlspecialchars.php) es una práctica recomendada para mitigar el riesgo de ataques XSS en aplicaciones web. Esta función convierte caracteres especiales en entidades HTML, lo que evita que el navegador interprete estos caracteres como código HTML o JavaScript. Al convertir los caracteres especiales en su equivalente HTML, se asegura que el texto ingresado por la persona usuaria se muestre correctamente en la página web sin representar un riesgo de seguridad.
+
+Al utilizar [htmlspecialchars](http://php.net/manual/es/function.htmlspecialchars.php), los caracteres como `<`, `>`, `&`, `"`, y `'` son convertidos en sus entidades HTML correspondientes (`&lt;`, `&gt;`, `&amp;`, `&quot;`, y `&#039;`), lo que impide que se interpreten como parte del código HTML o JavaScript.
+
+Es importante destacar que, aunque los navegadores modernos cuentan con filtros para detectar y prevenir algunos ataques XSS, no se debe depender únicamente de ellos para garantizar la seguridad de una aplicación. Es fundamental implementar prácticas de codificación segura desde la base, como el uso de funciones de escape como [htmlspecialchars](http://php.net/manual/es/function.htmlspecialchars.php), la validación de entrada, la sanitización de datos y la adopción de políticas de seguridad de contenido, para reducir el riesgo de vulnerabilidades XSS y proteger la aplicación contra posibles ataques.

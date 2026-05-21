@@ -1,0 +1,38 @@
+{
+  "title": {
+    "message": "OSDO",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Logo de Open SecDevOps",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Tutorial": {
+    "message": "Tutorial",
+    "description": "Navbar item with label Tutorial"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.GitLab": {
+    "message": "GitLab",
+    "description": "Navbar item with label GitLab"
+  },
+  "item.label.App": {
+    "message": "App",
+    "description": "Navbar item with label App"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.OSDO-APP": {
+    "message": "OSDO-APP",
+    "description": "Navbar item with label OSDO-APP"
+  },
+  "item.label.Ataques": {
+    "message": "Ataques",
+    "description": "Navbar item with label Ataques"
+  }
+}
