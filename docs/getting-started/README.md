@@ -153,4 +153,4 @@ jobs:
 - [Architecture Overview](/docs/v2/architecture) — How all OSDO components fit together
 - [CLI Reference](/docs/v2/cli-reference) — Full command documentation
 - [Actions Catalog](/docs/v2/actions) — Detailed action configuration
-- [Certification Compliance](/docs/v2/compliance) — SLSA, OpenSSF Scorecard alignment
+- [Certification Compliance](/docs/compliance) — SLSA, OpenSSF Scorecard alignment

@@ -835,7 +835,7 @@ OSDO es un proyecto **open source** en busca de apoyo de la comunidad y las empr
 
 ### ¿Cuál es el roadmap de OSDO?
 
-[Ver roadmap detallado →](./roadmap-certificaciones.md)
+[Ver roadmap detallado →](/docs/compliance)
 
 **Q4 2024:**
 - ✅ Documentación metodología completa

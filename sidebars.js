@@ -116,7 +116,11 @@ const sidebars = {
             'introduccion/adopcion-metodologia',
             'introduccion/best-practices',
             'introduccion/certificaciones',
-            'introduccion/roadmap-certificaciones',
+            {
+              type: 'doc',
+              id: 'compliance/README',
+              label: 'Compliance & Certifications',
+            },
             'introduccion/faq',
           ]
         },
