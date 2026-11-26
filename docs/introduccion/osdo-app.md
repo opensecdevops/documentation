@@ -16,7 +16,7 @@ OSDO App es una **aplicación web interactiva** que permite crear pipelines de C
 
 ## 🎯 ¿Qué es OSDO App?
 
-OSDO App complementa a [OSDO CLI](../../infra-cli/README.md) (que despliega infraestructura) al proporcionar una forma visual y guiada de **generar pipelines** que usen esa infraestructura.
+OSDO App complementa a OSDO CLI (que despliega infraestructura) al proporcionar una forma visual y guiada de **generar pipelines** que usen esa infraestructura.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -887,8 +887,8 @@ test('validation rules', () => {
 
 ## Recursos Adicionales
 
-- [Documentación completa de paquetes](../../app/package.mdx)
-- [Testing de paquetes](../../app/testing.mdx)
+- Documentación completa de paquetes
+- Testing de paquetes
 - [Comunidad OSDO App](https://github.com/opensecdevops/osdo-app/discussions)
 - [Paquetes de la comunidad](https://app.opensecdevops.org/packages)
 
