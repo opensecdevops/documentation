@@ -92,7 +92,7 @@ In the App, navigate to **Packages → Create** and upload a zip containing:
 - `config.json` — Form definition (fields, validation, blocks)
 - `templates/` — Handlebars templates (`.hbs` files)
 
-See [Package Development Guide](/docs/v2/packages) for the full specification.
+See Package Development Guide for the full specification.
 
 ---
 
@@ -150,7 +150,7 @@ jobs:
 
 ## What's next?
 
-- [Architecture Overview](/docs/v2/architecture) — How all OSDO components fit together
-- [CLI Reference](/docs/v2/cli-reference) — Full command documentation
-- [Actions Catalog](/docs/v2/actions) — Detailed action configuration
+- [Architecture Overview](/docs/v2/introduccion) — How all OSDO components fit together
+- [CLI Reference](/docs/v2/cli/comandos) — Full command documentation
+- Actions Catalog — Detailed action configuration
 - [Certification Compliance](/docs/compliance) — SLSA, OpenSSF Scorecard alignment

@@ -91,7 +91,7 @@ osdo deploy --platform kubernetes \
 - 📦 Registros de contenedores (Harbor, Nexus)
 - 🚀 CI/CD (GitLab, Jenkins)
 
-[Ver documentación completa del OSDO CLI →](../../infra-cli/README.md)
+Ver documentación completa del OSDO CLI →
 
 #### 2. OSDO App - Generador de Pipelines CI/CD
 
@@ -256,7 +256,7 @@ test('render pipeline correctly', () => {
 });
 ```
 
-[Ver documentación completa de OSDO App →](../../app/README.md)
+Ver documentación completa de OSDO App →
 
 #### 3. Cómo Trabajan Juntos OSDO CLI y OSDO App
 
@@ -911,7 +911,7 @@ osdo deploy --clusters prod-us-east,prod-eu-west \
 ## Recursos del Framework
 
 ### Documentación
-- [Arquitectura detallada](./arquitectura.md)
+- Arquitectura detallada
 - [Guía de componentes](../infrastructura/README.md)
 
 ### Comunidad
@@ -920,11 +920,11 @@ osdo deploy --clusters prod-us-east,prod-eu-west \
 - [Stack Overflow Tag](https://stackoverflow.com/questions/tagged/osdo)
 
 ### Training
-- [OSDO Fundamentals](./training/fundamentals.md)
-- [Advanced OSDO](./training/advanced.md)
-- [OSDO Certification](./training/certification.md)
+- OSDO Fundamentals
+- Advanced OSDO
+- OSDO Certification
 
 ---
 
 **¿Quieres contribuir al framework?**  
-Lee nuestra [Guía de Contribución](./contributing.md) y únete a la comunidad en [GitHub](https://github.com/osdo).
+Lee nuestra Guía de Contribución y únete a la comunidad en [GitHub](https://github.com/osdo).

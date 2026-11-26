@@ -76,7 +76,7 @@ Cada componente en esta documentación incluye una sección de instalación con 
 
 ### Infraestructura Core (3 componentes)
 - [cert-manager](./certmanager/README.md) - Gestión de certificados SSL/TLS
-- [nginx-ingress](./nginx/README.md) - Controlador de ingress
+- nginx-ingress - Controlador de ingress
 - [traefik](./traefik/README.md) - Proxy reverso y balanceador
 
 ### CI/CD (4 componentes)
@@ -96,8 +96,8 @@ Cada componente en esta documentación incluye una sección de instalación con 
 - [OpenAppSec](./appsec/README.md) - Protección de aplicaciones web
 
 ### Monitoreo y Observabilidad (3 componentes)
-- [Prometheus](./prometheus/README.md) - Sistema de monitoreo y alertas
-- [Grafana](./grafana/README.md) - Plataforma de visualización
+- Prometheus - Sistema de monitoreo y alertas
+- Grafana - Plataforma de visualización
 - [GlitchTip](./glitchtip/README.md) - Seguimiento y gestión de errores
 
 ### Bases de Datos (1 componente)

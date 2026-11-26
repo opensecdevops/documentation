@@ -176,7 +176,7 @@ yo @opensecdevops/osdo
 Usuario → OSDO App → Formulario → Pipeline personalizado (.gitlab-ci.yml, .github/workflows/*, Jenkinsfile)
 ```
 
-[Ver OSDO App en detalle →](../app/README.md)
+Ver OSDO App en detalle →
 
 ### Cómo Trabajan Juntos
 
@@ -336,11 +336,11 @@ git push
 
 ### Documentación Completa
 
-- [Guía de Introducción](./introduccion/README.md)
+- [Guía de Introducción](./introduccion/marco-de-trabajo.md)
 - [Integración Continua (CI)](./ci/index.mdx)
 - [Entrega Continua (CD)](./cd/index.md)
 - [Infraestructura](./infrastructura/README.md)
-- [Análisis de Ataques](../attacks/README.md)
+- Análisis de Ataques
 
 ## Comunidad y Contribución
 
@@ -348,7 +348,7 @@ OSDO es un proyecto de código abierto que busca la participación de la comunid
 
 - [Discusiones en GitHub](https://github.com/opensecdevops/discussions)
 - [Reportar Issues](https://github.com/opensecdevops/issues)
-- [Contribuir](./contributing.md)
+- Contribuir
 - Contacto: info@opensecdevops.com
 
 ---

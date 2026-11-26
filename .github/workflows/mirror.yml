@@ -10,18 +10,36 @@ jobs:
   mirror:
     name: Sincronizar con GitLab
     runs-on: ubuntu-latest
+    env:
+      GITLAB_NAMESPACE: ${{ vars.GITLAB_NAMESPACE || 'opensecdevops' }}
+      GITLAB_DOCUMENTATION_REPO: ${{ vars.GITLAB_DOCUMENTATION_REPO || 'documentation' }}
 
     steps:
       - name: Checkout completo (historia completa)
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0
 
-      - name: Push a GitLab
+      - name: Comprobar secreto de GitLab
+        id: gitlab
         env:
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
-          git remote add gitlab "https://oauth2:${GITLAB_TOKEN}@gitlab.com/<GITLAB_NAMESPACE>/<GITLAB_DOCUMENTATION_REPO>.git"
+          if [ -z "$GITLAB_TOKEN" ]; then
+            msg="Mirror a GitLab omitido: falta el secreto GITLAB_TOKEN. Consulta README.md (sección Secretos y variables)."
+            echo "::notice title=GitLab mirror::$msg"
+            echo "$msg" >> "$GITHUB_STEP_SUMMARY"
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Push a GitLab
+        if: steps.gitlab.outputs.enabled == 'true'
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          git remote add gitlab "https://oauth2:${GITLAB_TOKEN}@gitlab.com/${GITLAB_NAMESPACE}/${GITLAB_DOCUMENTATION_REPO}.git"
           git push gitlab --all --force
           git push gitlab --tags --force
-          echo "✅ Mirror completado → gitlab.com/<GITLAB_NAMESPACE>/<GITLAB_DOCUMENTATION_REPO>"
+          echo "✅ Mirror completado → gitlab.com/${GITLAB_NAMESPACE}/${GITLAB_DOCUMENTATION_REPO}"

@@ -14,32 +14,45 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0    # Docusaurus usa git history para "last updated"
 
       - name: Configurar Node.js 22
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
           cache: 'npm'
-          cache-dependency-path: documentation/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Instalar dependencias
         run: npm ci
-        working-directory: documentation
 
       - name: Build Docusaurus
         run: npm run build
-        working-directory: documentation
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
+      - name: Comprobar secretos de Netlify
+        id: netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            msg="Deploy a Netlify omitido: faltan los secretos NETLIFY_AUTH_TOKEN y/o NETLIFY_SITE_ID. El build se ha validado igualmente."
+            echo "::notice title=Netlify::$msg"
+            echo "$msg" >> "$GITHUB_STEP_SUMMARY"
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Deploy a Netlify (producción)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: nwtgck/actions-netlify@v3
+        if: steps.netlify.outputs.enabled == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: nwtgck/actions-netlify@4cbaf4c08f1a7bfa537d6113472ef4424e4eb654 # v3.0.0
         with:
-          publish-dir: documentation/build
+          publish-dir: build
           production-branch: main
           production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -50,10 +63,10 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: Deploy Preview (PRs)
-        if: github.event_name == 'pull_request'
-        uses: nwtgck/actions-netlify@v3
+        if: steps.netlify.outputs.enabled == 'true' && github.event_name == 'pull_request'
+        uses: nwtgck/actions-netlify@4cbaf4c08f1a7bfa537d6113472ef4424e4eb654 # v3.0.0
         with:
-          publish-dir: documentation/build
+          publish-dir: build
           production-branch: main
           production-deploy: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -66,7 +79,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: URL del deploy
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: steps.netlify.outputs.enabled == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           echo "## Documentación desplegada" >> "$GITHUB_STEP_SUMMARY"
           echo "La documentación de OSDO ha sido actualizada en Netlify." >> "$GITHUB_STEP_SUMMARY"
